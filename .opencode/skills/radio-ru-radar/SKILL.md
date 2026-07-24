@@ -444,5 +444,5 @@ Single-stage search cached in `search_scores`:
 - URL base: `http://www.radio.ru` (not HTTPS — site uses HTTP)
 - Reports go to `../../../reports/radio-ru-radar/`
 
-Base directory for this skill: C:\Users\z1011100\repos\info-radars\.opencode\skills\radio-ru-radar
+Base directory for this skill: C:\Users\z1011100\repos\electronic-circuit-radars\.opencode\skills\radio-ru-radar
 Relative paths in this skill (e.g., src/, data/) are relative to this base directory.
