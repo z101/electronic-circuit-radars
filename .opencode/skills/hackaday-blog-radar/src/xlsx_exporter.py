@@ -39,29 +39,29 @@ BASE_EDITABLE = {"is_interesting", "is_read"}
 SEARCH_COLUMNS = [
     "id",
     "score",
-    "normalized",
     "is_interesting",
     "is_read",
-    "author",
     "date",
     "url",
-    "tags",
     "summary_ru",
     "comments",
+    "author",
+    "title",
+    "tags",
 ]
 
 SEARCH_HEADER_NAMES = {
     "id": "id",
     "score": "Score",
-    "normalized": "Norm.",
     "is_interesting": "I",
     "is_read": "R",
-    "author": "Author",
     "date": "Date",
     "url": "URL",
-    "tags": "Tags",
     "summary_ru": "Summary",
     "comments": "Comments",
+    "author": "Author",
+    "title": "Title",
+    "tags": "Tags",
 }
 
 SEARCH_EDITABLE = {"is_interesting", "is_read"}
@@ -138,15 +138,15 @@ def export_to_xlsx(articles: list[dict], output_path: str, columns=None, header_
     col_widths = {
         "id": 7,
         "score": 6,
-        "normalized": 7,
         "is_interesting": 3,
         "is_read": 3,
-        "author": 18,
         "date": 10,
         "url": 5,
-        "tags": 30,
         "summary_ru": 90,
         "comments": 8,
+        "author": 18,
+        "title": 55,
+        "tags": 30,
     }
     for col_idx, col_name in enumerate(columns, 1):
         w = col_widths.get(col_name, 10)

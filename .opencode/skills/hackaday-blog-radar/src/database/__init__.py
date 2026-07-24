@@ -576,7 +576,7 @@ class Database:
         top: int | None = None,
     ) -> list[dict]:
         query = (
-            "SELECT a.id, a.title, a.date, a.url, a.author, a.tags, "
+            "SELECT a.id, a.title, a.date, a.url, a.author, a.tags, a.summary_ru, "
             "  a.is_interesting, a.is_read, "
             "  (SELECT COUNT(*) FROM comments c WHERE c.article_id = a.id) AS comments, "
             "  s.total, s.comment "
@@ -585,7 +585,7 @@ class Database:
             "WHERE a.category = ? "
             "  AND s.query_hash = ? "
             "  AND s.status = 'scored' AND s.total >= ? "
-            "ORDER BY s.total DESC"
+            "ORDER BY a.date DESC, s.total DESC"
         )
         params: list = [category, query_hash, min_total]
         if top:
@@ -602,6 +602,7 @@ class Database:
                 "url": r["url"],
                 "author": r["author"] or "",
                 "tags": tags,
+                "summary_ru": r["summary_ru"] or "",
                 "is_interesting": bool(r["is_interesting"]),
                 "is_read": bool(r["is_read"]),
                 "comments": r["comments"] or 0,

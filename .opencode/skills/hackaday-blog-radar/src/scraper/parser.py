@@ -88,11 +88,9 @@ def parse_article_page(html: str) -> dict[str, Any]:
         "has_comments_section": False,
     }
 
-    author_el = soup.find("span", class_="author")
+    author_el = soup.select_one("ul.meta-authors span.fn a")
     if author_el:
-        author_link = author_el.find("a")
-        if author_link:
-            result["author"] = author_link.get_text(strip=True)
+        result["author"] = author_el.get_text(strip=True)
 
     content_el = soup.find("div", class_="entry-content")
     if content_el:

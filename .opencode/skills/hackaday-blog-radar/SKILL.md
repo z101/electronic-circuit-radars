@@ -136,6 +136,15 @@ Always show final stats:
 
 ---
 
+> **⚠️ ВАЖНО: Keyword scoring — БЕЗ LLM**
+> 
+> **Этап 1 (keyword scoring) выполняется Python-скриптом с regex, который пишет и запускает opencode.**
+> **LLM (general subagent) используется ТОЛЬКО на Этапе 2 для re-ranking топ-N.**
+> 
+> Не используй subagent'ов для keyword scoring — это работа оркестратора, а не LLM.
+> 
+> См. `AGENTS.md` (раздел "Multi-line PowerShell / Python Commands") — как писать временные скрипты.
+
 ## Mode 2: Search
 
 Семантический поиск в два этапа:

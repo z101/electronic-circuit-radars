@@ -22,8 +22,13 @@ All skills live under `.opencode/skills/<name>/`. Each has a `SKILL.md` with ful
 
 | Skill | Directory | Auto-detection Triggers |
 |-------|-----------|------------------------|
+| **instructables-radar** | `.opencode/skills/instructables-radar/` | User mentions instructables.com, LED projects, Instructables LED, или wants to scrape projects from instructables |
+| **circuitdigest-radar** | `.opencode/skills/circuitdigest-radar/` | User mentions circuitdigest.com, LED схемы, electronic circuits, electronic projects, PWM LED dimmer, или wants to scrape articles from circuitdigest.com |
+| **hackaday-io-radar** | `.opencode/skills/hackaday-io-radar/` | User mentions hackaday.io, проекты с hackaday.io, API hackaday.io, портал проектов Hackaday |
 | **hackaday-blog-radar** | `.opencode/skills/hackaday-blog-radar/` | User mentions hackaday.com, LED Hacks, 3D Printing Hacks, or wants to scrape articles |
 | **radio-ru-radar** | `.opencode/skills/radio-ru-radar/` | User mentions radio.ru, журнал Радио, архив радиожурнала, "Содержание номера", или wants to scrape articles from radio.ru archive |
+| **rlocman-radar** | `.opencode/skills/rlocman-radar/` | User mentions rlocman.ru, радиолоцман, схемы, circuit schematics, LED схемы, или wants to scrape articles from rlocman.ru/shem/ |
+| **radioskot-radar** | `.opencode/skills/radioskot-radar/` | User mentions radioskot.com, радиосхемы, электронные схемы, радиолюбительские схемы, или wants to scrape articles from radioskot.com |
 | **sqlite-query** | `.opencode/skills/sqlite-query/` | User mentions `.db`/`.sqlite` path, "база данных", "бд", "sqlite", "кеш", "сколько записей", "покажи данные из базы", "выполни запрос", or asks about counts/stats/aggregations from a database |
 
 ### Auto-detection Priority

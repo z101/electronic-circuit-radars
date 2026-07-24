@@ -35,8 +35,8 @@ def generate_report(
     for r in report:
         row = {
             "id": r["id"],
+            "title": r["title"],
             "score": r["total"],
-            "normalized": r.get("total_normalized", 0),
             "is_interesting": r["is_interesting"],
             "is_read": r["is_read"],
             "author": r["author"] or "",
@@ -61,11 +61,10 @@ def generate_report(
     print()
 
     top_n = min(10, len(report))
-    print(f"Top {top_n} (normalized):")
+    print(f"Top {top_n} (raw score):")
     print("-" * 70)
     for r in report[:top_n]:
-        display = f"{r.get('total_normalized', r['total']):.0f}" if isinstance(r.get('total_normalized'), (int, float)) else str(r['total'])
-        print(f"[{r['id']:4d}] {display:>3s}pt  {r['title'][:55]}")
+        print(f"[{r['id']:4d}] {r['total']:>3d}pt  {r['title'][:55]}")
         print(f"       {r['date']}  {r['url']}")
         if r["comment"]:
             print(f"       {r['comment'][:100]}")
@@ -94,8 +93,7 @@ def generate_report_text(
     lines = []
     lines.append(f"Results for '{query_name}' ({category}):\n")
     for r in report[:top or 20]:
-        display = f"{r.get('total_normalized', r['total']):.0f}" if isinstance(r.get('total_normalized'), (int, float)) else str(r['total'])
-        lines.append(f"[{r['id']:4d}] ({display:>3s}pt) {r['title']}")
+        lines.append(f"[{r['id']:4d}] ({r['total']:>3d}pt) {r['title']}")
         lines.append(f"       {r['date']}  {r['url']}")
         if r["comment"]:
             lines.append(f"       {r['comment'][:200]}")

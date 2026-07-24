@@ -474,7 +474,7 @@ def _handle_search_subcommand(args, db: Database) -> int:
             return 1
         xlsx_path = generate_report(
             db, args.category, query_name, query_hash,
-            min_total=args.min_score or 0, top=args.top,
+            min_total=args.min_score, top=args.top,
         )
         if xlsx_path is None:
             print(f"No scored results yet for query '{query_name}' in category '{args.category}'.")
@@ -979,7 +979,7 @@ def create_parser() -> argparse.ArgumentParser:
     search_report = search_sub.add_parser("report", parents=[search_common],
                                           help="Generate ranked search report (XLSX)")
     search_report.add_argument("--top", type=int, metavar="N", help="Limit report to top N")
-    search_report.add_argument("--min-score", type=int, default=0, metavar="N",
+    search_report.add_argument("--min-score", type=int, default=50, metavar="N",
                                help="Minimum relevance score")
 
     # === track ===
