@@ -18,3 +18,6 @@ reports/
 
 # Temporary reference materials
 .temp/
+
+# Environment files (API keys, secrets)
+.env
